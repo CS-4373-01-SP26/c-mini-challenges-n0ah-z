@@ -1,12 +1,18 @@
 #include <stdio.h>
 
 void rev(char* string);
+void transpos(void(* func)(char*), char* string);
 
 int main(int argc, char **argv){
     char input[50];
+    printf("type in word to be reversed: ");
     scanf("%s",input);
 
-    rev(input);
+    transpos(&rev, input);
+}
+
+void transpos(void(* func)(char*), char* string){
+    func(string);
 }
 
 void rev(char* string){

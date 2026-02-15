@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <time.h>
+#include <stdlib.h>
 
 int main(){
     // char path[200];
     // printf("File Path: ");
     // scanf("%s",path);
     // printf("1\n");
-    FILE *file = fopen("build/Debug/mv.txt","r");
+    FILE *file = fopen("C:\\Users\\noahz\\Documents\\HPC\\c-mini-challenges-n0ah-z\\mv.txt","r");
     if (file == NULL){
         printf("Error!\n");
         return 1;
@@ -26,30 +27,33 @@ int main(){
         // printf("\n");
     }
     // printf("\n");
+
     int vlen;
-    int vector[vlen];
     fscanf(file,"%d\n",&vlen);
+    int *vector = malloc(sizeof(int)*vlen);
+
     for (int i = 0; i < vlen; i++){
-        fscanf(file,"%d",&num);
+        int num;
+        fscanf(file,"%d", &num);
         vector[i] = num;
-        // printf("%d ", num);
     }
-    // printf("\n");
-    // printf("\n");
-    double start = clock();
+    clock_t start = clock();
     int solution[vlen];
     int rowsum = 0;
+    
     for (int i = 0;  i < rows; i++){
         for (int j = 0; j < cols; j++){
+            // printf("(%d * %d) + ", matrix[i][j], vector[j]);
             rowsum += matrix[i][j] * vector[j];
+            //printf("%d ", rowsum);
         }
         solution[i] = rowsum;
         rowsum = 0;
         printf("%d ", solution[i]);
     }
     printf("\n");
-    double end = clock();
-    double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("time = %f\n", cpu_time_used);
+    clock_t end = clock();
+    double cpu_time_used = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("time = %f seconds\n", cpu_time_used);
     return 0;
 }
