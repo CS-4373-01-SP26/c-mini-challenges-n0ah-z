@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
   int i,j;
-  int n = 128;
+  int n = 128*2*2*2*2*2;
   double sum;
   clock_t end, start;
   double *arr = malloc(n*n*sizeof(double));
@@ -19,24 +19,24 @@ int main(int argc, char **argv) {
 
 // ROW MAJOR WORK
 // YOU'LL NEED TO TIME IT
-start = clock();
-for (i = 0; i<n; i++) // iterate over rows 
-  for (j = 0; j<n; j++) // iterate over columns 
-    sum += arr[i*n + j];
-end = clock();
+  start = clock();
+  for (i = 0; i<n; i++) // iterate over rows 
+    for (j = 0; j<n; j++) // iterate over columns 
+      sum += arr[i*n + j];
+  end = clock();
 // NOTE:  YOU'LL NEED TO PROVIDE MEANING TO end AND start
-  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,(end - start));
 
 //ADD YOUR COLUMN MAJOR WORK
 // YOU'LL NEED TO TIME IT
-sum = 0;
-start = clock();
-for (i = 0; i<n; i++) // iterate over columns 
-  for (j = 0; j<n; j++) // iterate over rows 
-    sum += arr[j*n + i];
-end = clock();
+  sum = 0;
+  start = clock();
+  for (i = 0; i<n; i++) // iterate over columns 
+    for (j = 0; j<n; j++) // iterate over rows 
+      sum += arr[j*n + i];
+  end = clock();
 // NOTE:  YOU'LL NEED TO PROVIDE MEANING TO end AND start
-  printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+  printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,(end - start));
   return 0;
 }
 

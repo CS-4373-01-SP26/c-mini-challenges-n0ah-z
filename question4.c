@@ -8,11 +8,11 @@ int main(){
     printf("n = ");
     scanf("%d", &n);
 
-    double start = clock();
+    clock_t start = clock();
     for(int i = 0; i < n; i++){
         temp = i * n;
     }
-    double end = clock();
+    clock_t end = clock();
     double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("* = %f\n", cpu_time_used);
 

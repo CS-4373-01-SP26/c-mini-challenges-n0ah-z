@@ -5,7 +5,7 @@
 
 int main(int argc, char **argv) {
   int i,j;
-  int n = 128;
+  int n = 128*2*2*2*2*2;
   double sum;
   clock_t end, start;
   double arr[n][n];
@@ -25,7 +25,7 @@ for (i = 0; i<n; i++) // iterate over rows
     sum += arr[i][j];
 end = clock();
 // NOTE:  YOU'LL NEED TO PROVIDE MEANING TO end AND start
-  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+  printf("Row Major: sum = %lf and Clock Ticks are %ld\n",sum,(end - start));
 
 //ADD YOUR COLUMN MAJOR WORK
 // YOU'LL NEED TO TIME IT
@@ -36,7 +36,7 @@ for (i = 0; i<n; i++) // iterate over columns
     sum += arr[j][i];
 end = clock();
 // NOTE:  YOU'LL NEED TO PROVIDE MEANING TO end AND start
-  printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,end-start);
+  printf("Column Major: sum = %lf and Clock Ticks are %ld\n",sum,(end - start));
   return 0;
 }
 
